@@ -1,0 +1,34 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb</title>
+</head> -->
+<% layout('layouts/boilerplate') -%>
+<body>
+    <br><br><br>
+    <hr>
+        <form action="airbnb/new" class="btn-5">
+                <button class="Add-new-Post-body">
+                    Add 
+                    <i class="fa-solid fa-plus" style="color: #ff0000;"></i>
+                </button>  
+        </form>
+    <div class="body-content row-cols-lg-4 row-cols-md-3 row-cols-sm-1">
+        <%for (const listing of allListings) { %>
+        <a href="/airbnb/<%= listing._id%>" class="text-decoration-none">
+            <div class="body-listings"  >
+                <img src="<%= listing.image.url%>" alt="Hello">
+                <div class="body-listings-body">
+                    <p class="body-country text-body-secondary"><%= listing.title%> <br><%= listing.country%></p>
+                    <p class="body-price text-body-secondary"> <b class="text-body">&#8377;<%= listing.price.toLocaleString("en-IN") %> </b>night</p>
+                </div>
+            </div>
+        </a>
+        <%}%>
+    </div>
+    
+</body>
+
+

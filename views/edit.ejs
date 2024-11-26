@@ -1,0 +1,60 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+    <!-- <form action="/airbnb/edit/<%= listing._id%>?_method=PUT" method="post">
+        Title: <input type="text" placeholder="<%= listing.title%>" value="<%= listing.title%>" name="listing[title]"><br><br>
+        price: <input type="number" name="listing[price]" id="price" value="<%= listing.price%>" placeholder="<%= listing.price%>"><br><br>
+        Description: <textarea name="listing[description]"> <%= listing.description%></textarea><br><br>
+        Country: <input type="text" placeholder="<%= listing.country%>" value="<%= listing.country%>" name="listing[country]"><br><br>
+        <button>submit</button>
+    </form> -->
+
+    <br><br><br><br>
+    <div class="New-rout-style">
+        <div class="col-6 offset-3">
+            <div class="card offset-3 col-6" style="width: 15rem;">
+                <img class="card-img-top" src="<%= listing.image.url%>" alt="Card image cap">
+            </div>
+        <form action="/airbnb/edit/<%= listing._id%>?_method=PUT" method="post" >
+            <div class="input-group mb-3 mt-4 w-30 show-rout-style-title">
+                <span class="input-group-text border-danger" id="basic-addon1">Image Link</span>
+                <input type="text" class="form-control border-danger" placeholder="<%= listing.image.url%>" name="listing[image.url]" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3 mt-4 w-30 show-rout-style-title">
+                <span class="input-group-text border-danger" id="basic-addon1">Title</span>
+                <input type="text" class="form-control border-danger" placeholder="<%= listing.title%>" value="<%= listing.title%>" name="listing[title]" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control h-1 border-danger" name="listing[description]"  placeholder="Leave a comment here" id="floatingTextareaDisabled"><%= listing.description%></textarea>
+                <label for="floatingTextareaDisabled" class="form-label">Description</label>
+            </div>
+            <div class="row" >
+            <div class="mb-3 col-md-8">
+                <div class=" input-group ">
+                <span class="input-group-text border-danger" id="basic-addon1">Price</span>
+                <input type="number" class="form-control border-danger" value="<%= listing.price%>" placeholder="<%= listing.price%>" name="listing[price]" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            </div>
+            <div class="mb-3 col-md-4">
+                <select name="listing[country]" id="Hello" class="Dropedown-desgin-btn6 form-control border-danger " data-bs-toggle="dropdown" aria-expanded="false" >
+                    <% if(listing.country === "India"){ %>
+                    <option value="India" class="dropdown-item" selected>&nbsp;&nbsp;India</option>
+                    <option value="United State" class="dropdown-item">&nbsp;&nbsp;United State</option>
+                    <option value="Rusia" class="dropdown-item">&nbsp;&nbsp;Rusia</option>
+                    <% }else if(listing.country === "Rusia"){ %>
+                    <option value="India" class="dropdown-item" >&nbsp;&nbsp;India</option>
+                    <option value="United State" class="dropdown-item">&nbsp;&nbsp;United State</option>
+                    <option value="Rusia" class="dropdown-item" selected>&nbsp;&nbsp;Rusia</option>
+                    <%}else { %>
+                    <option value="India" class="dropdown-item" >&nbsp;&nbsp;India</option>
+                    <option value="United State" class="dropdown-item" selected>&nbsp;&nbsp;United State</option>
+                    <option value="Rusia" class="dropdown-item" >&nbsp;&nbsp;Rusia</option>
+                    <%}%>
+                </select>
+              </div>
+            </div>  
+            <button class="border-danger Dropedown-desgin-btn6"><b>submit</b></button>
+        </form>
+    </div>
+    </div>
+    <br><br><br><br><br>
+</body>
